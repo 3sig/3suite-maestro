@@ -1,39 +1,48 @@
-# 3suite
+# 3suite-maestro
 
-this repository serves as a template for 3suite projects. as of writing, it includes:
+3suite-maestro is a standalone orchestrator that combines the downloading capabilities of 3lib-orchestrator with the process management of 3suite-orchestrator.
 
-- 3lib-config setup
-- workflow actions for automated building and releasing via tags
+## How it works
 
-## usage
+1. Uses 3lib-orchestrator to download and set up 3suite components from GitHub releases
+2. Runs the downloaded 3suite-orchestrator instance to manage the processes
 
-### creating a new project
+## Configuration
 
-fork the repository--any changes that we make to the build workflows should be merged upstream to this template.
+The `config.json5` file contains configuration for both 3suite-maestro and the orchestrator processes:
 
-enable workflows in github so that the build workflows can run.
+- `orchestratorConfigFile`: Which config file to pass to 3lib-orchestrator (defaults to "config.json5")
+- `devDependenciesLocation`: Where to download dependencies (defaults to "orchestrator-deps")
+- `processes`: Array of processes for 3lib-orchestrator to download and manage
+- `configs`: Named configurations that processes can reference via `loadConfig`
 
-### creating a release
+## Usage
 
-ensure that you are in a fully committed state before creating a tag.
-you likely want to download and check the related build before tagging.
+Run with:
+```
+bun main.js
+```
 
-create a tag:
+Or with custom config:
+```
+bun main.js -f custom-config.json5
+```
 
-`git tag -a v1.0.0 -m "release v1.0.0"`
+## Creating a Release
 
-the message inside of the quotes will be the release message.
-the version number will be appended to the output build files.
+Create a tag:
+```
+git tag -a v1.0.0 -m "release v1.0.0"
+```
 
-push the tag:
-
-`git push origin tag v1.0.0`
-
-you DEFINITELY don't want to run `git push --tags` because it will trigger releases for tags across the history.
+Push the tag:
+```
+git push origin tag v1.0.0
+```
 
 ### macOS builds
 
-we currently do not support notarization for macOS builds.
-to run mac builds, flag them as safe for gatekeeper with the following command:
-
-`xattr -c <path_to_mac_executable>`
+For macOS builds, flag as safe for gatekeeper:
+```
+xattr -c <path_to_mac_executable>
+```

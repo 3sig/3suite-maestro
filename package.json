@@ -1,9 +1,12 @@
 {
-  "name": "3suite-template",
+  "name": "3suite-maestro",
   "version": "0.0.0",
+  "description": "Standalone orchestrator for downloading, managing, and running 3suite components",
   "main": "main.js",
   "type": "module",
   "dependencies": {
-    "3lib-config": "github:3sig/3lib-config"
+    "3lib-config": "github:3sig/3lib-config",
+    "3lib-orchestrator": "github:3sig/3lib-orchestrator",
+    "execa": "^9.6.0"
   }
 }
