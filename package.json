@@ -1,6 +1,6 @@
 {
   "name": "3suite-maestro",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Standalone orchestrator for downloading, managing, and running 3suite components",
   "main": "main.js",
   "type": "module",
