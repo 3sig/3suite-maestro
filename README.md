@@ -30,15 +30,8 @@ bun main.js -f custom-config.json5
 
 ## Creating a Release
 
-Create a tag:
-```
-git tag -a v1.0.0 -m "release v1.0.0"
-```
-
-Push the tag:
-```
-git push origin tag v1.0.0
-```
+ensure that you are in a fully committed state before creating a tag.
+run `npm run release` (or `bun run release`) and follow the prompts.
 
 ### macOS builds
 
