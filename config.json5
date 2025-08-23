@@ -2,7 +2,7 @@
   // Configuration for 3suite-maestro
   orchestratorConfigFile: "config.json5",
   devDependenciesLocation: "orchestrator-deps",
-  
+
   // Configuration for 3lib-orchestrator
   processes: [
     {
@@ -10,6 +10,18 @@
       source: "3sig/3suite-http-server",
       sourceActions: [{ type: "chmod" }],
       config: {port: 4004, directory: "node_modules"},
+    },
+    {
+      name: "httpServer2",
+      source: "3sig/3suite-http-server",
+      sourceActions: [{ type: "chmod" }],
+      config: {port: 4005, directory: "node_modules"},
+    },
+    {
+      name: "httpServer3",
+      source: "3sig/3suite-http-server",
+      sourceActions: [{ type: "chmod" }],
+      config: {port: 4006, directory: "node_modules"},
     },
     {
       name: "browser",
