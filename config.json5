@@ -3,6 +3,11 @@
   orchestratorConfigFile: "config.json5",
   devDependenciesLocation: "orchestrator-deps",
 
+  // make this true to check for updates on launch.
+  // once you've downloaded updates, set this back to false
+  // so that you don't get blocked by github rate limits
+  update: false,
+
   // Configuration for 3lib-orchestrator
   processes: [
     {
