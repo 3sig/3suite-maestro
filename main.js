@@ -6,8 +6,12 @@ import fs from 'fs';
 config.init();
 console.log(config.get());
 
-// Get orchestrator config file name from maestro config
-const orchestratorConfigFile = config.get("orchestratorConfigFile", "config.json5");
+// Get orchestrator config file name from maestro config, otherwise use the maestro config itself
+let orchestratorConfigFile = config.get("orchestratorConfigFile");
+if (!orchestratorConfigFile) {
+  orchestratorConfigFile = config.getConfigFilename();
+}
+console.log("Using orchestrator config file:", orchestratorConfigFile);
 
 // Check if dependencies need to be downloaded
 const devDependenciesLocation = config.get("devDependenciesLocation", ".");

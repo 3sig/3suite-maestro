@@ -1,6 +1,9 @@
 {
   // Configuration for 3suite-maestro
-  orchestratorConfigFile: "config.json5",
+  // location of orchestrator config file. by default
+  // maestro uses its own config file, but you can specify
+  // a different one here.
+  // orchestratorConfigFile: "config.json5",
   devDependenciesLocation: "orchestrator-deps",
 
   // make this true to check for updates on launch.
