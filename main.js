@@ -35,7 +35,7 @@ const orchestratorExec = `${devDependenciesLocation}/${orchestratorFilename}`;
 
 console.log("Starting 3suite-orchestrator...");
 console.log(orchestratorExec, orchestratorFilename);
-const orchestratorProcess = execa("./" + orchestratorFilename, ["-f", "config.json5"], {cwd: devDependenciesLocation});
+const orchestratorProcess = execa("./" + orchestratorFilename, ["-f", "config.json5"], {cwd: devDependenciesLocation, windowsHide: false});
 
 // Stream output
 for await (const result of orchestratorProcess) {
